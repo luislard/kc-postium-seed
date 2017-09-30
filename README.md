@@ -125,7 +125,7 @@ Qué practicamos:
 
 ### Green Path: Detalles de un post
 
-¿Te ves capaz de habilitar la vista en detalle de los posts?. Ahora mismo, por mucho que hagas clic sobre el título, imagen o cuerpo del post, no te lleva a una vista individual en la que leer el resto del post y ver otros detalles del mismo, como las categorías en las que se ha publicado. Este **Path** no debería resultarte especialmente complicado, así que ¡ánimo!.
+~~¿Te ves capaz de habilitar la vista en detalle de los posts?. Ahora mismo, por mucho que hagas clic sobre el título, imagen o cuerpo del post, no te lleva a una vista individual en la que leer el resto del post y ver otros detalles del mismo, como las categorías en las que se ha publicado. Este **Path** no debería resultarte especialmente complicado, así que ¡ánimo!.
 
 Dependencias:
 
@@ -140,7 +140,7 @@ Documentos:
 
 Qué practicamos:
 
-- Comunicación entre componentes
+- Comunicación entre componentes~~
 
 ### Red Path: Posts por autor
 
