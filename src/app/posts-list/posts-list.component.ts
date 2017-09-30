@@ -37,7 +37,7 @@ export class PostsListComponent {
   |=========================================================================*/
 
   changeViewToPostDetail(post: Post): void {
-    let postId = post ? post.id : null;
+    let postId = post ? post.id : '';
     this.router.navigate(['/posts/'+postId]);
   }
 
