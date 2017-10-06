@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { NativeWindow } from '../window';
 import { Post } from '../post';
@@ -14,6 +15,7 @@ export class PostDetailsComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
+    private router: Router,
     @Inject(NativeWindow) private _window) { }
 
   ngOnInit(): void {
@@ -38,6 +40,12 @@ export class PostDetailsComponent implements OnInit {
   | '/posts/users', pasando como parámetro el identificador del autor.       |
   |=========================================================================*/
 
+  changeViewToPostFilteredByAuthor(): void {
+      
+    let authorId = this.post.author.id;
+    this.router.navigate(['/posts/users/'+authorId]);
+    
+  }
   /*=========================================================================|
   | Yellow Path                                                              |
   |==========================================================================|
