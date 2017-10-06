@@ -32,11 +32,18 @@ export class PostPreviewComponent {
   |=========================================================================*/
 
   @Output() titleClicked = new EventEmitter<Post>();
+  @Output() authorClicked = new EventEmitter<Post>();
 
   notifyTitleClicked(): void {
     const post: Post = this.post;
     // console.log(post);
     this.titleClicked.emit(post);
+  }
+
+  notifyAuthorClicked(): void {
+    const post: Post = this.post;
+    // console.log(post);
+    this.authorClicked.emit(post);
   }
 
   plainTextToHtml(text: string): string {

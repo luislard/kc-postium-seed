@@ -65,8 +65,16 @@ export class PostService {
     |                                                                          |
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
+    
+    const options = {
+      params: new HttpParams()
+        .set('author.id', `${id}`)
+        .set('publicationDate_lte', moment().format('x'))
+        .set('_sort','publicationDate')
+        .set('_order','desc')
+    }
 
-     return this._http.get<Post[]>(`${environment.backendUri}/posts`);
+     return this._http.get<Post[]>(`${environment.backendUri}/posts`,options);
   }
 
   getCategoryPosts(id: number): Observable<Post[]> {

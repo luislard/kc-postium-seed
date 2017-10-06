@@ -26,6 +26,16 @@ export class PostsListComponent {
   | parámetro el identificador del autor.                                    |
   |=========================================================================*/
 
+  changeViewToPostFilteredByAuthor(post: Post): void {
+    if (post.author.id) {
+      let authorId = post.author.id;
+      this.router.navigate(['/posts/users/'+authorId]);
+    }else{
+      this.router.navigate(['/posts']);
+
+    }
+  }
+  
   /*=========================================================================|
   | Green Path                                                               |
   |==========================================================================|
@@ -40,5 +50,7 @@ export class PostsListComponent {
     let postId = post ? post.id : '';
     this.router.navigate(['/posts/'+postId]);
   }
+
+  
 
 }
