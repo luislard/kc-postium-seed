@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Category } from '../category';
 
@@ -11,6 +11,7 @@ export class CategoryBoxComponent {
 
   @Input() categories: Category[];
 
+
   /*=========================================================================|
   | Yellow Path                                                              |
   |==========================================================================|
@@ -20,5 +21,10 @@ export class CategoryBoxComponent {
   | que dicho clic se realiza en el template de este componente, necesitas,  |
   | además, un manejador para el mismo.                                      |
   |=========================================================================*/
+  @Output() categoryClicked = new EventEmitter<Category>();
+  notifyCategoryClicked(category: Category): void {
+    console.log('la categoria es ',category);
+    this.categoryClicked.emit(category);
+  }
 
 }
