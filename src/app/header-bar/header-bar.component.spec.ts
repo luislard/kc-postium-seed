@@ -1,15 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RouterOutlet } from '@angular/router';
 import { By } from '@angular/platform-browser';
 
-import { HeaderBarComponent } from './header-bar/header-bar.component';
-import { SearchBoxComponent } from './search-box/search-box.component';
+import { HeaderBarComponent } from './header-bar.component';
+import { SearchBoxComponent } from '../search-box/search-box.component';
 
 //  Los bloques describe agrupamos tests que tengan 
 // algun tiop de relacion
-describe('AppComponent testing del componente', () => {
+describe('HeaderBarComponent testing del componente', () => {
   
   let component;
   let fixture;
@@ -26,7 +24,6 @@ describe('AppComponent testing del componente', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent,
         HeaderBarComponent,
         SearchBoxComponent
       ],
@@ -34,7 +31,7 @@ describe('AppComponent testing del componente', () => {
 
     // Para instanciar componentes debemos usar la funcion  createComponent de TestBed.
     //  Nos retornará un ComponentFixture<T> siendo T el tipo de componente solicitado
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(HeaderBarComponent);
     component = fixture.componentInstance;
 
   }));
@@ -43,7 +40,7 @@ describe('AppComponent testing del componente', () => {
   }));
 });
 
-describe('AppComponent: testing del template', ( ) => { 
+describe('HeaderBarComponent: testing del template', ( ) => { 
   let fixture;
   let template;
 
@@ -59,7 +56,6 @@ describe('AppComponent: testing del template', ( ) => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent,
         HeaderBarComponent,
         SearchBoxComponent
       ],
@@ -67,7 +63,7 @@ describe('AppComponent: testing del template', ( ) => {
 
     // Para instanciar componentes debemos usar la funcion  createComponent de TestBed.
     //  Nos retornará un ComponentFixture<T> siendo T el tipo de componente solicitado
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(HeaderBarComponent);
     template = fixture.debugElement;
 
   }));
@@ -78,8 +74,4 @@ describe('AppComponent: testing del template', ( ) => {
     expect(h1nativo.textContent).toBe('Postium');
   });
 
-  it('debería tener una zona dinamica donde pintar las secciones', () => {
-    let routerOutlet = template.query(By.directive(RouterOutlet));
-    expect(routerOutlet).toBeTruthy();
-  });
 });
