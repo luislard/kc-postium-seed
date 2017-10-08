@@ -33,8 +33,15 @@ export class PostsResolveService implements Resolve<Post[]> {
     | del servicio PostService. Recuerda mirar en los parámetros de la ruta, a |
     | ver qué encuentras.                                                      |
     |=========================================================================*/
+    else if(route.url[0].path === 'posts' 
+        && route.url[1] ? route.url[1].path === 'categories' : false){
+        return this._postService.getCategoryPosts(parseInt(route.url[2].path));
 
-    return this._postService.getPosts();
+    }
+
+    else {
+      return this._postService.getPosts();
+    }
   }
 
 }
