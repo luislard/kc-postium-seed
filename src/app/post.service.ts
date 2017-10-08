@@ -77,6 +77,17 @@ export class PostService {
      return this._http.get<Post[]>(`${environment.backendUri}/posts`,options);
   }
 
+  checkIfPostContainsACategory(post: Post, categoryId: number): Boolean {
+    let result = false;
+    post.categories.forEach((element) => {
+      if (element.id === categoryId) {
+        result = true;
+        return;
+      }
+    });
+    return result;
+  }
+
   getCategoryPosts(id: number): Observable<Post[]> {
 
     /*=========================================================================|
@@ -107,7 +118,23 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-     return this._http.get<Post[]>(`${environment.backendUri}/posts`);
+    const options = {
+      params: new HttpParams()
+        .set('publicationDate_lte', moment().format('x'))
+        .set('_sort','publicationDate')
+        .set('_order','desc')
+    }
+    
+
+    let posts: Observable<Post[]> = this._http.get<Post[]>(`${environment.backendUri}/posts`, options); 
+    return posts.map((data) => {
+      console.log(data);
+      // let filteredData = data.filter(element => this.checkIfPostContainsACategory(element,id));
+      let filteredData = data.filter(post => this.checkIfPostContainsACategory(post,id) === true);
+      console.log(filteredData,data);
+      return filteredData;
+    });
+
   }
 
   getPostDetails(id: number): Observable<Post> {
