@@ -1,3 +1,4 @@
 <app-post-form 
     (postUpdateRequest)="updatePost($event)"
-    submitButtonText="Actualizar"></app-post-form>
+    [submitButtonText]="'Actualizar'"
+    [post]="post"></app-post-form>

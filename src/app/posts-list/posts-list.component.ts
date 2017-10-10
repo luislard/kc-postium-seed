@@ -28,7 +28,6 @@ export class PostsListComponent {
 
   changeViewToEditStory(post: Post): void {
     if (post.id) {
-    console.log('estoy tratando de cambiar de vista');
       let postId = post.id;
       this.router.navigate(['/edit-story/'+postId]);
     }else{
