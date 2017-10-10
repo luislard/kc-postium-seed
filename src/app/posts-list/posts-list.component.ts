@@ -26,6 +26,16 @@ export class PostsListComponent {
   | parámetro el identificador del autor.                                    |
   |=========================================================================*/
 
+  changeViewToEditStory(post: Post): void {
+    if (post.id) {
+    console.log('estoy tratando de cambiar de vista');
+      let postId = post.id;
+      this.router.navigate(['/edit-story/'+postId]);
+    }else{
+      this.router.navigate(['/posts']);
+
+    }
+  }
   changeViewToPostFilteredByAuthor(post: Post): void {
     if (post.author.id) {
       let authorId = post.author.id;

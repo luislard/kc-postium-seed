@@ -280,6 +280,54 @@
         2
       ],
       "id": 10
+    },
+    {
+      "title": "Mi post",
+      "intro": "un intro a mi post",
+      "body": "mi historia loca",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1507659889205,
+      "id": 11
+    },
+    {
+      "title": "hola",
+      "intro": "asdlkas",
+      "body": "añlskdf",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1507665530721,
+      "id": 12
+    },
+    {
+      "title": "hola",
+      "intro": "asdflkajsdf",
+      "body": "alsdflkjahsd",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1507665566317,
+      "id": 13
     }
   ],
   "categories": [
