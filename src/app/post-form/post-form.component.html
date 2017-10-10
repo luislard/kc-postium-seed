@@ -5,6 +5,7 @@
 |========================================================================-->
 <form 
   (submit)="emitPostSubmitted()"
+  (input)="isFormInvalid()"
   [formGroup]="postForm" novalidate>
 
   <!--=======================================================================|
@@ -14,6 +15,7 @@
   |========================================================================-->
   <input
     formControlName="title"
+    
     type="text"
     placeholder="Título"
     class="u-full-width">
@@ -48,6 +50,7 @@
   | Deshabilita el botón 'Publicar' si el formulario no es válido.           |
   |========================================================================-->
   <button
+    *ngIf="isValid"
     type="submit"
     class="button-primary u-pull-right">Publicar</button>
 
