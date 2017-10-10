@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Post } from '../post';
@@ -16,6 +16,7 @@ export class PostFormComponent {
 
   isValid: Boolean;
 
+  @Input() submitButtonText: string; 
   @Output() postSubmitted: EventEmitter<Post> = new EventEmitter();
 
   constructor(
