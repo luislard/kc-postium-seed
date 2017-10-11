@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Post } from '../post';
@@ -14,6 +14,12 @@ export class PostFormComponent {
 
   postForm: FormGroup;
 
+  isValid: Boolean;
+
+  postValue: Post;
+
+  @Input() submitButtonText: string; 
+  @Input() post: Post; 
   @Output() postSubmitted: EventEmitter<Post> = new EventEmitter();
 
   constructor(
@@ -38,6 +44,18 @@ export class PostFormComponent {
       body: ['', [Validators.required, Validators.minLength(4)]]
       
     });
+    
+  }
+
+  ngOnChanges(){
+    if(this.post){
+      this.postForm.patchValue({
+        title: this.post.title || '',
+        intro: this.post.intro || '',
+        body: this.post.body || ''
+      });
+    }
+    this.isFormInvalid();
   }
 
   emitPostSubmitted(): void {
@@ -47,6 +65,11 @@ export class PostFormComponent {
     post.author = this._userService.getDefaultUser();
     post.publicationDate = Date.now();
     this.postSubmitted.emit(post);
+  }
+
+  isFormInvalid(){
+    this.isValid = !this.postForm.invalid;
+    return this.postForm.invalid;
   }
 
 }

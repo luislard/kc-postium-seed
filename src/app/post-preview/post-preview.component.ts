@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from '../post';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-post-preview',
@@ -31,8 +32,23 @@ export class PostPreviewComponent {
   | además, un manejador para el mismo.                                      |
   |=========================================================================*/
 
+  @Output() editButtonClicked = new EventEmitter<Post>();
   @Output() titleClicked = new EventEmitter<Post>();
   @Output() authorClicked = new EventEmitter<Post>();
+
+  // brokenwhite
+
+  constructor(private _userService: UserService) { }
+
+  isOwnerOfPost(){
+    return this._userService.getDefaultUser().id === this.post.author.id;
+  }
+
+  notifyEditButtonClicked(): void {
+    const post: Post = this.post;
+    // console.log(post);
+    this.editButtonClicked.emit(post);
+  }
 
   notifyTitleClicked(): void {
     const post: Post = this.post;
