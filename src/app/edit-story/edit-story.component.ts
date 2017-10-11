@@ -20,12 +20,18 @@ export class EditStoryComponent implements OnInit {
       route: ActivatedRoute) { 
     this.id = parseInt(route.snapshot.params.postId);
     this._postService.getPostDetails(this.id).subscribe((data: Post)=>{
-      console.log('data',data);
       this.post = data as Post;
     });
   }
 
   ngOnInit() {
+  }
+
+  updatePost(post: Post){
+    post.id = this.id;
+    this._postService.updatePost(post).subscribe(data=>{
+      console.log('Hemos actualizado el post: ', data);
+    });
   }
 
 }

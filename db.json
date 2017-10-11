@@ -331,8 +331,8 @@
     },
     {
       "title": "Una historia de verdad",
-      "intro": "Una intro verdadera",
-      "body": "Un contenido de punta",
+      "intro": "Una intro verdadera de verdad",
+      "body": "Un contenido de puntaaaaaaaaa2222",
       "likes": [],
       "categories": [],
       "author": {
@@ -342,7 +342,7 @@
         "email": "keepcoder@postium.com",
         "avatar": "assets/images/keepcoder.jpg"
       },
-      "publicationDate": 1507673741124,
+      "publicationDate": 1507760924757,
       "id": 14
     }
   ],
