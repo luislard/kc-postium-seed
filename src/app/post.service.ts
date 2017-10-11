@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -156,6 +156,20 @@ export class PostService {
     return this._http.post<Post>(
       `${environment.backendUri}/posts`, 
       post
+    );
+  }
+
+  updatePost(post: Post): Observable<Post> {
+    const header = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = {
+      headers: header,
+    };
+
+    console.log('estamos en update Post en el service', post.id);
+    return this._http.put<Post>(
+      `${environment.backendUri}/posts/${post.id}`, 
+      post,
+      options
     );
   }
 

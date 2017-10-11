@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { CategoryResolveService } from './category-resolve.service';
 import { NewStoryComponent } from './new-story/new-story.component';
+import { EditStoryComponent } from './edit-story/edit-story.component';
 import { PostsResolveService } from './posts-resolve.service';
 import { PostDetailsResolveService } from './post-details-resolve.service';
 import { PostDetailsComponent } from './post-details/post-details.component';
@@ -34,6 +35,9 @@ import { PostsViewComponent } from './posts-view/posts-view.component';
     }, {
       path: 'new-story',
       component: NewStoryComponent
+    }, {
+      path: 'edit-story/:postId',
+      component: EditStoryComponent
     }, {
       path: 'posts/:postId',
       component: PostDetailsComponent,
