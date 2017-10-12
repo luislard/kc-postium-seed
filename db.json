@@ -219,7 +219,8 @@
         }
       ],
       "likes": [
-        2
+        2,
+        1
       ],
       "id": 8
     },
@@ -301,7 +302,9 @@
       "title": "hola",
       "intro": "asdlkas",
       "body": "añlskdf",
-      "likes": [],
+      "likes": [
+        1
+      ],
       "categories": [],
       "author": {
         "id": 1,
@@ -314,10 +317,12 @@
       "id": 12
     },
     {
-      "title": "hola",
+      "title": "holaaaaa",
       "intro": "asdflkajsdf",
       "body": "alsdflkjahsd",
-      "likes": [],
+      "likes": [
+        1
+      ],
       "categories": [],
       "author": {
         "id": 1,
@@ -326,14 +331,16 @@
         "email": "keepcoder@postium.com",
         "avatar": "assets/images/keepcoder.jpg"
       },
-      "publicationDate": 1507665566317,
+      "publicationDate": 1507837928781,
       "id": 13
     },
     {
       "title": "Una historia de verdad",
       "intro": "Una intro verdadera de verdad",
       "body": "Un contenido de puntaaaaaaaaa2222",
-      "likes": [],
+      "likes": [
+        1
+      ],
       "categories": [],
       "author": {
         "id": 1,

@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Post } from '../post';
+import { User } from '../user';
 
 
 @Component({
@@ -11,9 +12,28 @@ import { Post } from '../post';
 export class SocialBoxComponent implements OnInit {
 
   @Input() post: Post;
-  constructor() { }
+  @Input() user: User;
+  @Output() notifyUpdateLikes = new EventEmitter<{ action: string, post: Post,user: User }>();
+
+  constructor() { 
+    
+  }
 
   ngOnInit() {
   }
+
+  isLiked(){
+    return this.post.likes.indexOf(this.user.id) !== -1;
+  }
+
+  manageLike(){
+    if(this.isLiked()){
+      
+      this.notifyUpdateLikes.emit({action: 'unlike',post: this.post,user: this.user});
+    }else{
+      this.notifyUpdateLikes.emit({action: 'like',post: this.post,user: this.user});
+    }
+  }
+
 
 }

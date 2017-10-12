@@ -4,7 +4,11 @@ import { Router } from '@angular/router';
 
 import { NativeWindow } from '../window';
 import { Post } from '../post';
+import { User } from '../user';
 import { Category } from '../category';
+
+import { UserService } from '../user.service';
+import { PostService } from '../post.service';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -13,11 +17,16 @@ import { Category } from '../category';
 export class PostDetailsComponent implements OnInit {
 
   post: Post;
+  user: User;
 
   constructor(
+    private _userService: UserService,
+    private _postService: PostService,
     private _activatedRoute: ActivatedRoute,
     private router: Router,
-    @Inject(NativeWindow) private _window) { }
+    @Inject(NativeWindow) private _window) {
+      this.user = this._userService.getDefaultUser();
+    }
 
   ngOnInit(): void {
     this._activatedRoute
@@ -58,10 +67,27 @@ export class PostDetailsComponent implements OnInit {
   |=========================================================================*/
 
   changeViewToPostFilteredByCategory(category: Category): void {
-    console.log('desde el componente post-details ',category);
     let categoryId = category.id;
     this.router.navigate(['/posts/categories/'+categoryId]);
     
+  }
+
+  updateLikes(object){
+    let updatedPost: Post = object.post;
+    let updatedLikesArray = updatedPost.likes;
+    if(object.action === 'like'){
+      updatedLikesArray.push(object.user.id);
+      updatedPost.likes = updatedLikesArray;
+    }else if(object.action === 'unlike'){
+      if(updatedLikesArray.indexOf(object.user.id) !== -1){
+        updatedLikesArray.splice(updatedLikesArray.indexOf(object.user.id),1);
+      }else{
+        return;
+      }
+    }
+    this._postService.updatePost(updatedPost).subscribe(data=>{
+      this.post = data;
+    });
   }
 
 }

@@ -1,5 +1,10 @@
 <div class="u-cf"></div>
-<div class="u-pull-left">
-  <i class="fa fa-thumbs-up" aria-hidden="true">&nbsp;</i><span class="likes-qty">{{ post.likes.length }}</span> Likes 
+<div class="u-pull-left likes"
+  (click)="manageLike()">
+  <i [class.fav]="isLiked()"
+    class="fa fa-thumbs-up" 
+    aria-hidden="true">
+    &nbsp;</i>
+    <span class="likes-qty">{{ post.likes.length }}</span> Likes 
 </div>
 <div class="u-cf"></div>
