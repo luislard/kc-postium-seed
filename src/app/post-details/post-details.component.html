@@ -28,6 +28,9 @@
 <div class="post">
   <h3>{{ post.title }}</h3>
   <img *ngIf="post.media" [src]="post.media" class="u-max-full-width">
+  <app-social-box
+    [post]="post">
+  </app-social-box>
   <div class="html-text" [innerHtml]="plainTextToHtml(post.intro)"></div>
   <hr>
   <div class="html-text" [innerHtml]="plainTextToHtml(post.body)"></div>
