@@ -165,7 +165,6 @@ export class PostService {
       headers: header,
     };
 
-    console.log('estamos en update Post en el service', post.id);
     return this._http.put<Post>(
       `${environment.backendUri}/posts/${post.id}`, 
       post,
