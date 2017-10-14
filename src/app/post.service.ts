@@ -14,7 +14,7 @@ export class PostService {
 
   constructor(private _http: HttpClient) { }
 
-  getPosts(): Observable<Post[]> {
+  getPosts(queryParams): Observable<Post[]> {
 
     /*=========================================================================|
     | Pink Path                                                                |
@@ -33,12 +33,13 @@ export class PostService {
     |                                                                          |
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
-
+    console.log('hola, este es el queryParam:',queryParams.q);
     const options = {
       params: new HttpParams()
         .set('publicationDate_lte', moment().format('x'))
         .set('_sort','publicationDate')
         .set('_order','desc')
+        .set('q', queryParams.q || '')
     } 
 
     return this._http.get<Post[]>(`${environment.backendUri}/posts`,options);

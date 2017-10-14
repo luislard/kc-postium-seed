@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
 
 import { Post } from '../post';
 
@@ -12,7 +12,18 @@ export class PostsListComponent {
 
   constructor(
     private router: Router
-   ) {}
+   ) {
+     this.router.events.subscribe(event => {
+      if(event instanceof NavigationStart){
+        console.log('navigation start')
+        
+      }else if(event instanceof NavigationCancel){
+        console.log('navigation cancel')
+      }else if(event instanceof NavigationEnd){
+        console.log('navigation end')
+      }
+     });
+   }
 
   @Input() posts: Post[];
 
