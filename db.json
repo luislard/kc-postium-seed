@@ -317,12 +317,10 @@
       "id": 12
     },
     {
-      "title": "holaaaaa",
-      "intro": "asdflkajsdf",
-      "body": "alsdflkjahsd",
-      "likes": [
-        1
-      ],
+      "title": "Un título elegante",
+      "intro": "Un intro elegante",
+      "body": "Un texto un poco mas elegante",
+      "likes": [],
       "categories": [],
       "author": {
         "id": 1,
@@ -331,7 +329,7 @@
         "email": "keepcoder@postium.com",
         "avatar": "assets/images/keepcoder.jpg"
       },
-      "publicationDate": 1507837928781,
+      "publicationDate": 1508013928936,
       "id": 13
     },
     {
