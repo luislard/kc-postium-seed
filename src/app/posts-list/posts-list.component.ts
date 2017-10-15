@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
+import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router, NavigationStart, NavigationCancel, NavigationEnd, ActivatedRoute, Params } from '@angular/router';
 
 import { Post } from '../post';
 
@@ -8,24 +8,33 @@ import { Post } from '../post';
   templateUrl: './posts-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PostsListComponent {
+export class PostsListComponent implements OnInit {
 
+  
   constructor(
-    private router: Router
+    private router: Router,
+    private _activatedRoute: ActivatedRoute
    ) {
-     this.router.events.subscribe(event => {
-      if(event instanceof NavigationStart){
-        console.log('navigation start')
+    //  this.router.events.subscribe(event => {
+    //   if(event instanceof NavigationStart){
+    //     console.log('navigation start')
         
-      }else if(event instanceof NavigationCancel){
-        console.log('navigation cancel')
-      }else if(event instanceof NavigationEnd){
-        console.log('navigation end')
-      }
-     });
+    //   }else if(event instanceof NavigationCancel){
+    //     console.log('navigation cancel')
+    //   }else if(event instanceof NavigationEnd){
+    //     console.log('navigation end')
+    //   }
+    //  });
    }
 
+  ngOnInit() {
+    this._activatedRoute.queryParams.subscribe(data=>{
+      this.queryParam.emit(data);
+    });
+  }
+
   @Input() posts: Post[];
+  @Output() queryParam = new EventEmitter<Params>();
 
   /*=========================================================================|
   | Red Path                                                                 |

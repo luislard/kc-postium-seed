@@ -14,17 +14,17 @@ export class HeaderBarComponent {
    ) {}
 
   changeRouteToPostListWithQueryParams(textToSearch){
-    console.log('aqui estoy en el changeRoute');
-    const snapshot = this.route.snapshot as ActivatedRouteSnapshot;
-    console.log('snapshot?', snapshot);
-    if(snapshot.children[0].url[0].path === 'posts' && typeof snapshot.children[0].url[1] === 'undefined'){
-      console.log('apliquemos el reload de los posts', snapshot.children[0].url[0]);
-      this.router.navigate(['/posts'], { queryParams: { q: textToSearch } });
-    }else{
-      console.log('naveguemos a la lista de posts', snapshot.children[0].url[0]);
+    // console.log('aqui estoy en el changeRoute');
+    // const snapshot = this.route.snapshot as ActivatedRouteSnapshot;
+    // console.log('snapshot?', snapshot);
+    // if(snapshot.children[0].url[0].path === 'posts' && typeof snapshot.children[0].url[1] === 'undefined'){
+    //   console.log('apliquemos el reload de los posts', snapshot.children[0].url[0]);
+    //   this.router.navigate(['/posts'], { queryParams: { q: textToSearch } });
+    // }else{
+    //   console.log('naveguemos a la lista de posts', snapshot.children[0].url[0]);
       this.router.navigate(['/posts'], { queryParams: { q: textToSearch } });
 
-    }
+    // }
   }
 
 }

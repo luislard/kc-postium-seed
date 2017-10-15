@@ -33,7 +33,6 @@ export class PostService {
     |                                                                          |
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
-    console.log('hola, este es el queryParam:',queryParams.q);
     const options = {
       params: new HttpParams()
         .set('publicationDate_lte', moment().format('x'))
