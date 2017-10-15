@@ -39,7 +39,8 @@ export class PostsResolveService implements Resolve<Post[]> {
 
     }
     else {
-      return this._postService.getPosts();
+      const queryParams = route.queryParams;
+      return this._postService.getPosts(queryParams);
     }
   }
 
