@@ -76,7 +76,7 @@ import { SocialBoxComponent } from './social-box/social-box.component';
     PostDetailsResolveService,
     PostService,
     PostsResolveService,
-    UserService
+    UserService,
   ],
   bootstrap: [
     AppComponent

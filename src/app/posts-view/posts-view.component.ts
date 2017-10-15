@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NativeWindow } from '../window';
 import { Post } from '../post';
+import { PostService } from '../post.service';
 
 @Component({
   templateUrl: './posts-view.component.html'
@@ -10,10 +11,13 @@ import { Post } from '../post';
 export class PostsViewComponent implements OnInit {
 
   posts: Post[];
+  
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    @Inject(NativeWindow) private _window) { }
+    @Inject(NativeWindow) private _window,
+    private _postService: PostService
+  ) { }
 
   ngOnInit(): void {
     this._activatedRoute
@@ -24,4 +28,9 @@ export class PostsViewComponent implements OnInit {
         });
   }
 
+  queryParamUpdate(params){
+    this._postService.getPosts(params).subscribe(data=>{
+      this.posts = data;
+    });
+  }
 }
